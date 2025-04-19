@@ -21,7 +21,6 @@
     "paths": {
       "src/*": ["./src/*"],
       "app/*": ["./src/app/*"],
-      "ui/*": ["src/ui/*"],
       "landing/*": ["./src/app/landing/*"],
       "dashboard/*": ["./src/app/dashboard/*"],
       "api/*": ["./src/app/api/*"]

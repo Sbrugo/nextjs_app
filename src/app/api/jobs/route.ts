@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { connectDB } from "src/lib/mongodb";
 import Job from "src/models/job";
 
-// Get all jobs
 export async function GET() {
   try {
     await connectDB();
@@ -17,44 +16,21 @@ export async function GET() {
   }
 }
 
-// Create new job
 export async function POST(req: Request) {
   try {
     await connectDB();
     const body = await req.json();
+    const [month, year] = body.date.split("/").map(Number);
+    const validDate = new Date(year, month - 1, 1);
 
-    // Validate input
-    if (
-      !body.title ||
-      !body.confidentialClient ||
-      typeof body.isRemote !== "boolean" ||
-      !body.date
-    ) {
-      return NextResponse.json(
-        { message: "Todos los campos son obligatorios" },
-        { status: 400 }
-      );
-    }
-
-    // Validate date format
-    const jobDate = new Date(body.date);
-    if (isNaN(jobDate.getTime())) {
-      return NextResponse.json(
-        { message: "Formato de fecha inválido" },
-        { status: 400 }
-      );
-    }
-
-    // Save to DB
     const newJob = new Job({
       title: body.title,
       confidentialClient: body.confidentialClient,
       isRemote: body.isRemote,
-      date: jobDate,
+      date: validDate,
     });
 
     await newJob.save();
-
     return NextResponse.json({ success: true, job: newJob }, { status: 201 });
   } catch (error) {
     console.error("❌ Error creando empleo:", error);

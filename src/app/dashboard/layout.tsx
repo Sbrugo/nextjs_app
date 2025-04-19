@@ -1,10 +1,19 @@
-export default function Layout({ children }: { children: React.ReactNode }) {
+"use client";
+import SideNav from "src/components/ui/sidenav";
+
+export default function Layout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
-      <div className="w-full flex-none md:w-64">
+    <main className="w-full flex">
+      <div className="md:w-64">
         <SideNav />
       </div>
-      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
-    </div>
+      <div className="flex flex-col gap-2 p-4">
+        <div className="space-y-4">{children}</div>
+      </div>
+    </main>
   );
 }

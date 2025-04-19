@@ -5,7 +5,7 @@ const JobSchema = new Schema(
     title: { type: String, required: true },
     confidentialClient: { type: String, required: true },
     isRemote: { type: String, required: true },
-    date: { type: Date, default: Date.now },
+    date: { type: Date, required: true },
   },
   { timestamps: true }
 );
