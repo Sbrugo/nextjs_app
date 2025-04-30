@@ -1,14 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "src/lib/mongodb";
 import Job from "src/models/job";
 
 export async function GET(
-  _req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  context: { params: { id: string } }
 ) {
   try {
     await connectDB();
-    const job = await Job.findById(params.id);
+    const job = await Job.findById(context.params.id);
 
     if (!job) {
       return NextResponse.json(
