@@ -30,7 +30,10 @@ export default function Page() {
             exercitationem natus.
           </p>
           <div className="mt-10 flex justify-center gap-4">
-            <button className="bg-slate-100 text-gray-900 rounded-full hover:bg-gray-900 hover:text-white transition-colors border flex gap-2 px-4 py-2 font-medium shadow-md">
+            <button
+              onClick={() => router.push("/apply")}
+              className="bg-slate-100 text-gray-900 rounded-full hover:bg-gray-900 hover:text-white transition-colors border flex gap-2 px-4 py-2 font-medium shadow-md"
+            >
               <span className="hidden md:block">Upload your Resume</span>
               <span className="block md:hidden">Upload Resume</span>
             </button>

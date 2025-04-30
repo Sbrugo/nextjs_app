@@ -16,7 +16,7 @@ const Searchbar = ({
   onSearch,
 }: SearchBoxProps) => {
   return (
-    <div className="flex w-full p-4 gap-2 bg-slate-100 rounded-3xl shadow">
+    <div className="flex w-full p-4 gap-2 bg-gray-950 rounded-3xl shadow text-white">
       <div className="flex flex-col gap-2 w-6/12">
         <Label className="pl-2">Keywords</Label>
         <Input
@@ -33,7 +33,7 @@ const Searchbar = ({
           <Input
             className="rounded-3xl p-6 pl-9 bg-white"
             placeholder="Warszawa, Poland"
-            disabled // por ahora deshabilitado
+            disabled
           />
         </div>
       </div>
@@ -44,13 +44,13 @@ const Searchbar = ({
           <Input
             className="rounded-3xl p-6 pl-9 bg-white"
             placeholder="2,000USD - 4,000USD"
-            disabled // por ahora deshabilitado
+            disabled
           />
         </div>
       </div>
       <button
         onClick={onSearch}
-        className="hover:bg-white hover:text-gray-900 py-4 rounded-full bg-gray-900 text-slate-50 transition-colors items-center gap-2 border-b font-light text-lg w-1/2 flex justify-center self-end"
+        className="bg-white p-3 rounded-full text-gray-950 transition-colors items-center gap-2 border-b font-light text-lg w-1/3 flex justify-center self-end h-fit"
       >
         Search <MagnifyingGlassIcon className="w-5" />
       </button>

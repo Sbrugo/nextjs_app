@@ -14,11 +14,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "src/components/ui/popover";
-import { Command, CommandGroup } from "src/components/ui/command";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Command } from "src/components/ui/command";
+import { ChevronsUpDown } from "lucide-react";
 import { cn } from "src/lib/utils";
 import { ScrollArea } from "src/components/ui/scroll-area";
-import { CommandItem } from "src/components/ui/command";
 
 type MultiSelectFieldProps = {
   name: string;

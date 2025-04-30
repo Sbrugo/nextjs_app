@@ -68,7 +68,7 @@ export const JobBoard = () => {
       />
       <JobList
         jobs={filteredJobs}
-        location="dashboard"
+        location="home"
         handleDelete={handleDelete}
       />
     </div>

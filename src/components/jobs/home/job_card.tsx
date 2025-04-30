@@ -34,11 +34,7 @@ export const JobCard = ({ job, location, handleDelete }: JobCardProps) => {
   };
 
   return (
-    <div
-      key={job._id}
-      onClick={handleClick}
-      className="rounded-3xl p-6 bg-slate-100 hover:shadow-lg transition-shadow duration-300 mb-6 border-b"
-    >
+    <div key={job._id} className="rounded-3xl p-6 bg-slate-100 mb-6 border-b">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div className="flex flex-col gap-2">
           <h3 className="text-lg text-gray-900">{job.title}</h3>
@@ -65,6 +61,7 @@ export const JobCard = ({ job, location, handleDelete }: JobCardProps) => {
           <div className="flex-shrink-0 self-center">
             <button
               aria-label="Apply to job"
+              onClick={handleClick}
               className="px-4 py-2 flex gap-2 font-light md:w-fit"
             >
               Apply <ArrowUpRightIcon className="w-5" />
