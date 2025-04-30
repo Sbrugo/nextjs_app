@@ -3,15 +3,22 @@ export function HomeSkeleton() {
 }
 export function JobsSkeleton() {
   return (
-    <div className="w-154">
-      <div className="border p-4 mb-4 rounded-lg shadow flex flex-col gap-3">
-        <h2 className="text-xl font-bold"></h2>
-        <div className="flex justify-between">
-          <div className="flex w-1/2 justify-between">
-            <p className="text-gray-700"></p>
-            <p className="text-gray-700"></p>
+    <div className="rounded-3xl p-6 bg-white mb-6 border-b animate-pulse">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="flex flex-col gap-4 w-full">
+          <div className="h-6 w-48 bg-gray-300 rounded"></div>
+
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-6">
+            <div className="h-4 w-24 bg-gray-300 rounded"></div>{" "}
+            <div className="h-4 w-20 bg-gray-300 rounded"></div>{" "}
+            <div className="h-4 w-16 bg-gray-300 rounded"></div> {/* Date */}
           </div>
-          <p className="text-gray-700"></p>
+
+          <div className="h-20 w-full bg-gray-300 rounded"></div>
+        </div>
+
+        <div className="flex-shrink-0">
+          <div className="h-10 w-28 bg-gray-300 rounded-full"></div>{" "}
         </div>
       </div>
     </div>

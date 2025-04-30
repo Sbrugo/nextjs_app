@@ -6,7 +6,7 @@ export default function Page() {
     <>
       <div className="flex shrink-0 p-4 mx-20 flex-col justify-center gap-2">
         <div className="h-80 flex flex-col gap-4 justify-center">
-          <h2 className="text-5xl flex items-center">
+          <h2 className="text-3xl font-light flex items-center">
             Hello, please feel free to apply to any jobs sending your
             information
           </h2>

@@ -11,9 +11,7 @@ export default function Layout({
       <div className="md:w-64">
         <SideNav />
       </div>
-      <div className="flex flex-col gap-2 p-4">
-        <div className="space-y-4">{children}</div>
-      </div>
+      <div className="flex flex-col gap-2 p-4 w-full">{children}</div>
     </main>
   );
 }

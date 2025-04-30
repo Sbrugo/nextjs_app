@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-const MONGODB_uri =
-  "mongodb+srv://usuario:contrasenia@clustermongodb.0zc5d.mongodb.net/?retryWrites=true&w=majority&appName=ClusterMongodb";
+const MONGODB_uri = process.env.MONGODB_URI;
 
 if (!MONGODB_uri) {
   throw new Error("Por favor defina la uri de mongodb");
 }
+
 export const connectDB = async () => {
   try {
     if (mongoose.connection.readyState === 1) {
@@ -18,4 +18,5 @@ export const connectDB = async () => {
     process.exit(1);
   }
 };
+
 connectDB();

@@ -1,15 +1,14 @@
 "use client";
 
-import { JobManager } from "src/components/jobs/dashboard/jobmanager";
+import { AddJob } from "src/components/jobs/dashboard/addJob";
+import { JobList } from "src/components/jobs/home/jobslist";
 
 export default function Page() {
   return (
-    <main className="w-full flex">
-      <div className="flex flex-col gap-2 p-4">
-        <div className="space-y-4">
-          <h1 className="text-2xl font-semibold">Panel de empleos</h1>
-          <JobManager />
-        </div>
+    <main className="flex flex-col gap-2">
+      <div className="space-y-4">
+        <AddJob />
+        <JobList location="dashboard" />
       </div>
     </main>
   );

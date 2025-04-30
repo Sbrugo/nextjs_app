@@ -4,7 +4,7 @@ import React from "react";
 const BacktojobsButton = () => {
   return (
     <button
-      className="border-2 rounded-2xl border-gray-900 bg-gray-900 text-white font-semibold px-2 py-0.5 w-fit"
+      className="bg-white border border-gray-700 text-gray-900 px-6 py-2 rounded-full hover:bg-purple-950 hover:text-white transition-colors w-fit"
       onClick={() => history.back()}
     >
       Back to Jobs

@@ -1,0 +1,16 @@
+{
+  "navbar": ["Dashboard", "Resources", "Team", "Projects"],
+  "title": "Welcome to the X page",
+  "searchbar": {
+    "placeholder": [
+      "UX/UI Designer",
+      "Warszawa, Poland",
+      "2,000 USD - 4,000 USD"
+    ]
+  },
+  "buttons": {
+    "search": "Search",
+    "apply": "Apply",
+    "applyNow": "Apply Now"
+  }
+}

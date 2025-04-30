@@ -1,7 +1,5 @@
 "use client";
 
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { JobCard } from "./job_card";
 
 interface Job {
@@ -10,47 +8,33 @@ interface Job {
   confidentialClient: string;
   isRemote: string;
   date: string;
+  description: string;
 }
 
-export const JobList = () => {
-  const [jobs, setJobs] = useState<Job[]>([]);
+interface JobListProps {
+  jobs: Job[];
+  location: string;
+  handleDelete: (id: string) => void;
+}
 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await axios.get("/api/jobs");
-        setJobs(response.data);
-      } catch (err) {
-        console.error("Error fetching jobs:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchJobs();
-  }, []);
-
-  if (loading) {
+export const JobList = ({ jobs, location, handleDelete }: JobListProps) => {
+  if (!jobs.length) {
     return (
-      <div className="flex flex-col gap-4 w-full max-w-xl">
-        {[...Array(5)].map((_, idx) => (
-          <div
-            key={idx}
-            className="animate-pulse border p-4 mb-4 rounded-lg shadow flex flex-col gap-3"
-          >
-            <div className="h-6 bg-gray-200 rounded-md w-3/4" />
-            <div className="h-4 bg-gray-100 rounded-md w-full" />
-          </div>
-        ))}
+      <div className="flex flex-col gap-4 w-9/12">
+        <p className="text-center text-gray-500">No jobs found.</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full px-[64px]">
+    <div className="w-full min-h-screen">
       {jobs.map((job) => (
-        <JobCard key={job._id} job={job} />
+        <JobCard
+          key={job._id}
+          job={job}
+          location={location}
+          handleDelete={handleDelete}
+        />
       ))}
     </div>
   );
