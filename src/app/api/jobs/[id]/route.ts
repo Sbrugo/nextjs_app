@@ -27,13 +27,13 @@ export async function GET(
 }
 
 export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  context: { params: { id: string } }
 ) {
   try {
     await connectDB();
     const body = await req.json();
-    const updatedJob = await Job.findByIdAndUpdate(params.id, body, {
+    const updatedJob = await Job.findByIdAndUpdate(context.params.id, body, {
       new: true,
     });
 
@@ -48,14 +48,14 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  context: { params: { id: string } }
 ) {
-  console.log(params.id);
+  console.log(context.params.id);
 
   try {
     await connectDB();
-    await Job.findByIdAndDelete(params.id);
+    await Job.findByIdAndDelete(context.params.id);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("❌ Error eliminando empleo:", error);
